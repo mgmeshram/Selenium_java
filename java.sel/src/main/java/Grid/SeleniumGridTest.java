@@ -16,6 +16,8 @@ public class SeleniumGridTest {
         FirefoxOptions options = new FirefoxOptions();
         options.setBrowserVersion("stable");
         options.setPlatformName("WINDOWS");
+        
+        Thread.sleep(5000);
 
         WebDriver driver = new RemoteWebDriver(gridUrl, options);
 
