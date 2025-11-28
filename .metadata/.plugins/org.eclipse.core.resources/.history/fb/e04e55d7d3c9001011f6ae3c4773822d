@@ -1,0 +1,33 @@
+package lab;
+
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class Flipkart {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		WebDriver driver= new ChromeDriver();
+		driver.manage().window().maximize();
+		
+		driver.get("https://www.flipkart.com/");
+		WebElement Electronics=driver.findElement(By.xpath("//*[text()='Electronics']"));
+		WebElement camera=driver.findElement(By.xpath("//*[text()='Laptop Accessories']"));
+		WebElement dslr=driver.findElement(By.xpath("//*[text()='DSLR & Mirrorless']"));
+		WebElement next=driver.findElement(By.xpath("//*[text()='Next']"));
+		Actions action=new Actions(driver);
+		action.moveToElement(Electronics).moveToElement(camera).moveToElement(dslr).click().scrollToElement(next).click();
+		
+		Thread.sleep(Duration.ofSeconds(5));
+		action.perform();
+		Thread.sleep(Duration.ofSeconds(5));
+		driver.close();
+
+	}
+
+}

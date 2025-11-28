@@ -1,0 +1,67 @@
+package Assignment;
+
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Assignment5 {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method 
+		 WebDriver driver= new ChromeDriver(); 
+		 driver.manage().window().maximize();
+		 
+		 driver.get("http://localhost/espocrm/");
+		 Thread.sleep(Duration.ofSeconds(10));
+		 
+		 WebElement uname= driver.findElement(By.xpath("//input[@name='username' and @id='field-userName']"));
+		 uname.sendKeys("admin");
+		 Thread.sleep(Duration.ofSeconds(3));
+		 
+		 WebElement upass=driver.findElement(By.xpath("//input[@name='password' and @id='field-password']"));
+		 upass.sendKeys("admin");
+		 Thread.sleep(Duration.ofSeconds(3));
+		 
+		 WebElement btn=driver.findElement(By.xpath("//button[@type='submit' and @id='btn-login']"));
+		 btn.click();
+		 Thread.sleep(Duration.ofSeconds(5));
+		 
+		 WebElement Acc=driver.findElement(By.xpath("//a[@href='#Account']"));
+		 Acc.click();
+		 Thread.sleep(Duration.ofSeconds(3));
+		
+		 WebElement cacc=driver.findElement(By.xpath("//a[@href='#Account/create' and @data-action='create']"));
+		 cacc.click();
+		 Thread.sleep(Duration.ofSeconds(3));
+		 
+		 
+		 driver.findElement(By.xpath("//input[@type='text' and @data-name='name']")).sendKeys("mrunali");
+		 Thread.sleep(Duration.ofSeconds(10));
+
+//		 name.sendKeys("Mrunali");
+//		 Thread.sleep(Duration.ofSeconds(5));
+//		 
+		 WebElement website=driver.findElement(By.xpath("//input[@autocomplete='espo-website' and @type='text']"));
+		 website.sendKeys("www.google.com");
+		 Thread.sleep(Duration.ofSeconds(3));
+		 
+		 WebElement email=driver.findElement(By.xpath("//input[@autocomplete='espo-emailAddress' and @type='email']"));
+		 email.sendKeys("mrunali.meshram13@gmail.com");
+		 Thread.sleep(Duration.ofSeconds(3));
+		 
+		 WebElement mobile= driver.findElement(By.xpath("//div[@class='selectize-control form-control radius-left single plugin-espo_select']"));
+		 mobile.click();
+//		 WebElement mobile1= driver.findElement(By.xpath("div[text()='Mobile']"));
+//		 mobile.click();
+//		 Thread.sleep(Duration.ofSeconds(3));
+		 ////div[text()='Mobile']
+		 driver.close();
+		 
+		  
+
+	}
+
+}

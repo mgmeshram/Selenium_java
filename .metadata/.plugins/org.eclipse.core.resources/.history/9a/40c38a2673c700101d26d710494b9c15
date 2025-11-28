@@ -1,0 +1,41 @@
+package test;
+
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class LoginToEspcrm {
+
+	public static void main(String[] args) throws InterruptedException {
+		 WebDriver driver= new ChromeDriver(); 
+		 driver.manage().window().maximize();
+		 
+		 driver.get("http://localhost/espocrm/");
+		 Thread.sleep(Duration.ofSeconds(3));
+		 
+		 WebElement uname= driver.findElement(By.xpath("//input[@name='username' and @id='field-userName']"));
+		 uname.sendKeys("admin");
+		 Thread.sleep(Duration.ofSeconds(3));
+		 
+		 WebElement upass=driver.findElement(By.xpath("//input[@name='password' and @id='field-password']"));
+		 upass.sendKeys("admin");
+		 Thread.sleep(Duration.ofSeconds(3));
+		 
+		 WebElement btn=driver.findElement(By.xpath("//button[@type='submit' and @id='btn-login']"));
+		 btn.click();
+		 Thread.sleep(Duration.ofSeconds(3));
+		 
+		 WebElement sp=driver.findElement(By.xpath("(//span[@class='fas fa-bars'])[1]"));
+		 sp.click();
+		 Thread.sleep(Duration.ofSeconds(3));
+		
+		 
+		 
+		 
+
+	}
+
+}

@@ -1,0 +1,30 @@
+package Assignment;
+
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class CreateAccount {
+
+	public static void main(String[] args) throws InterruptedException {
+		WebDriver driver= new ChromeDriver();
+		driver.manage().window().maximize();
+		
+		driver.get("http://localhost/espocrm/");
+		Thread.sleep(Duration.ofSeconds(5));
+		
+		driver.findElement(By.xpath("//input[@id='field-userName']")).sendKeys("admin");
+		driver.findElement(By.xpath("//input[@id='field-password']")).sendKeys("admin");
+		driver.findElement(By.xpath("//button[@id=\\\"btn-login\\\"]")).click();
+		driver.findElement(By.xpath("//a[@class='nav-link'])[2]")).click();
+		driver.findElement(By.xpath("//a[@data-name='create']")).click();
+		driver.findElement(By.xpath("//input[@data-name='name']")).sendKeys("xyz");
+		driver.findElement(By.xpath("//input[@class='main-element form-control'])[2]")).sendKeys("www.google.com");
+		driver.findElement(By.xpath("//input[@class='form-control email-address']")).sendKeys("xyz@gmail.com");
+		
+
+	}
+
+}

@@ -1,0 +1,99 @@
+package test;
+
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class LoginToEspcrm {
+
+	public static void main(String[] args) throws InterruptedException {
+		 WebDriver driver= new ChromeDriver(); 
+		 driver.manage().window().maximize();
+		 
+		 driver.get("http://localhost/espocrm/");
+		 Thread.sleep(Duration.ofSeconds(10));
+		 
+		 WebElement uname= driver.findElement(By.xpath("//input[@name='username' and @id='field-userName']"));
+		 uname.sendKeys("admin");
+		 Thread.sleep(Duration.ofSeconds(3));
+		 
+		 WebElement upass=driver.findElement(By.xpath("//input[@name='password' and @id='field-password']"));
+		 upass.sendKeys("admin");
+		 Thread.sleep(Duration.ofSeconds(3));
+		 
+		 WebElement btn=driver.findElement(By.xpath("//button[@type='submit' and @id='btn-login']"));
+		 btn.click();
+		 Thread.sleep(Duration.ofSeconds(5));
+		 
+//		 WebElement sp=driver.findElement(By.xpath("(//span[@class='fas fa-bars'])[1]"));
+//		 sp.click();
+//		 Thread.sleep(Duration.ofSeconds(3));
+		 
+		 
+		 driver.navigate().to("http://localhost/espocrm/#Account");
+		 
+		 
+		//a[@href='#Account']
+By cr = By.xpath("\"//*[@class='header-buttons btn-group pull-right']//*[@data-name='create']\"");
+		 WebElement crtact=driver.findElement(cr);
+		 Thread.sleep(Duration.ofSeconds(5));
+
+		 crtact.click();
+		 
+		 
+		 
+//		 WebElement Acc=driver.findElement(By.xpath("//a[@href='#Account']"));
+//		 Acc.click();
+//		 Thread.sleep(Duration.ofSeconds(3));
+		
+//		 WebElement test=driver.findElement(By.xpath("//a[@href='#Account/view/691d79c10ac7b934e' and @title='test']"));
+//		 test.click();
+//		 Thread.sleep(Duration.ofSeconds(3));
+		 
+		 WebElement edit=driver.findElement(By.xpath("//button[@class='btn action btn-xs-wide detail-action-item btn-default radius-left']"));
+		 edit.click();
+		 Thread.sleep(Duration.ofSeconds(3));
+		 
+		 WebElement name=driver.findElement(By.xpath("(//input[@class='main-element form-control'])[1]"));
+		 name.sendKeys("mrunali");
+		 Thread.sleep(Duration.ofSeconds(3));
+		 
+		 WebElement website=driver.findElement(By.xpath("(//input[@class='main-element form-control'])[2]"));
+		 website.sendKeys("www.google.com");
+		 Thread.sleep(Duration.ofSeconds(3));
+		 
+		 WebElement email=driver.findElement(By.xpath("//input[@type='email']"));
+		 email.sendKeys("mrunali.meshram13@gmail.com");
+		 Thread.sleep(Duration.ofSeconds(3));
+		 
+//		 WebElement mobile=driver.findElement(By.xpath("//div[@class='item' and @data-value='Mobile']"));
+//		 mobile.click();
+//		 Thread.sleep(Duration.ofSeconds(3));
+//		 
+//		 WebElement in=driver.findElement(By.xpath("//span[text()='IN']"));
+//		 in.click();
+//		 Thread.sleep(Duration.ofSeconds(3));
+		 
+		 WebElement mobileno=driver.findElement(By.xpath("//input[@type=\"text\" and @maxlength='36']"));
+		 mobileno.sendKeys("9834814436");
+		 Thread.sleep(Duration.ofSeconds(3));
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		//*[@class='btn btn-default btn-xs-wide main-header-manu-action action radius-left radius-right']	 
+		 
+		 driver.quit();
+		 
+		 
+		 
+
+	}
+
+}

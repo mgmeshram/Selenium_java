@@ -1,0 +1,30 @@
+package Assignment;
+
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Gmail {
+
+	public static void main(String[] args) throws InterruptedException {
+		WebDriver driver= new ChromeDriver();
+		driver.manage().window().maximize();
+		
+		driver.get("https://accounts.google.com/v3/signin/accountchooser?continue=https%3A%2F%2Fmail.google.com%2Fmail%2Fu%2F0%2F&dsh=S-1174070539%3A1764080339402805&emr=1&followup=https%3A%2F%2Fmail.google.com%2Fmail%2Fu%2F0%2F&ifkv=ARESoU06TV-De9t7fjLqfiKk4FGLOs9hQbvYda8crfy_wWoH8WF0TmZPtZeWPhE8GtvIGCKIGf895A&osid=1&passive=1209600&service=mail&flowName=GlifWebSignIn&flowEntry=ServiceLogin");
+		Thread.sleep(Duration.ofSeconds(5));
+		//driver.close();
+		
+		driver.findElement(By.cssSelector("input[type='email']")).sendKeys("priya12feb1993@gmail.com");
+		Thread.sleep(Duration.ofSeconds(5));
+		
+		driver.findElement(By.cssSelector("#identifierNext > div > button > span")).click();
+		Thread.sleep(Duration.ofSeconds(5));
+		
+		driver.findElement(By.cssSelector("div[class='rFrNMe i79UJc zKHdkd sdJrJc']")).sendKeys("priya#1993");
+		Thread.sleep(Duration.ofSeconds(5));
+		driver.close();
+	}
+
+}

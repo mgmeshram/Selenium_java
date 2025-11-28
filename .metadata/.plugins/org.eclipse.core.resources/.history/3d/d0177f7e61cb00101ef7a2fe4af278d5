@@ -1,0 +1,27 @@
+package pom;
+
+import org.openqa.selenium.WebDriver;
+
+import pom.DriverFactory;
+import pom.LoginTestCase;
+
+public class Main {
+
+	public static void main(String[] args) throws InterruptedException {
+		WebDriver driver = DriverFactory.initDriver("chrome");
+		WebDriver driver1= DriverFactory.initDriver("chrome");
+		
+		LoginTestCase tc1 = new LoginTestCase(driver);
+		tc1.validLogin();
+		System.out.println("successfully login!");
+		
+		LoginTestCase tc2 = new LoginTestCase(driver1);
+		tc2.invalidLogin();
+		System.out.println("unsuccesfull login");
+	
+		
+		Thread.sleep(5000);
+		
+		driver.quit();
+	}
+}

@@ -1,0 +1,27 @@
+package pom;
+
+import org.openqa.selenium.WebDriver;
+
+import pom.LoginPage;
+
+public class LoginTestCase {
+
+	private LoginPage login;
+	public LoginTestCase(WebDriver driver) {
+		login = new LoginPage(driver);
+	}
+	
+	public void validLogin() {
+		login.login("admin", "admin");
+		login.logout();
+	}
+	
+	public void invalidLogin() {
+		try {
+			login.login("admin123", "admin");
+		} catch (Exception e) {
+			
+		}
+		
+	}
+}

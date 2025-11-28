@@ -1,0 +1,35 @@
+package Assignment;
+
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class checkboxCheck {
+
+	public static void main(String[] args) throws InterruptedException {
+		
+		WebDriver driver= new ChromeDriver(); 
+		 driver.manage().window().maximize();
+		 driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+		    WebElement uname=driver.findElement(By.xpath("//input[@class='oxd-input oxd-input--active' and @name='username']"));
+		    Thread.sleep(Duration.ofSeconds(5));
+			uname.sendKeys("Admin");
+			
+			
+			WebElement upass=driver.findElement(By.xpath("//input[@class='oxd-input oxd-input--active' and @name='password']"));
+			Thread.sleep(Duration.ofSeconds(5));
+			upass.sendKeys("admin123");
+//			Thread.sleep(Duration.ofSeconds(5));
+			
+			WebElement button=driver.findElement(By.className("orangehrm-login-button"));
+			Thread.sleep(Duration.ofSeconds(5));
+			button.click();
+//			Thread.sleep(Duration.ofSeconds(5));
+
+		 
+	}
+
+}
